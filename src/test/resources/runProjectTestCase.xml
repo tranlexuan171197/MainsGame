@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel = "false">
+    <parameter name = "url" value = "https://eklipse.gg/"/>
+
+        <listeners>
+            <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+            <listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+            <listener class-name="commons.MethodListener"></listener>
+            <listener class-name="commons.ReportNGListener"></listener>
+        </listeners>
+
+    <test name="Test Cas I">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name ="com.project.function.Test_Case_Example_I" />
+        </classes>
+    </test>
+
+<!--    <test name="Test Case II" preserve-order="true">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="com.project.function.Test_Case_Example_I"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
