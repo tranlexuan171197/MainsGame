@@ -10,17 +10,16 @@
             <listener class-name="commons.ReportNGListener"></listener>
         </listeners>
 
-    <test name="Test Cas I">
+    <test name="Test Case I">
         <parameter name = "browser" value = "chrome"/>
         <classes>
-            <class name ="com.project.function.Test_Case_Example_I" />
+            <class name ="com.project.function.Test_Case_Sign_In">
+<!--                <methods>-->
+<!--                    <include name="TC_Sign_Up_For_Free_With_Wrong_Email_Format"/>-->
+<!--                </methods>-->
+            </class>
+
         </classes>
     </test>
 
-<!--    <test name="Test Case II" preserve-order="true">-->
-<!--        <parameter name="browser" value="chrome"/>-->
-<!--        <classes>-->
-<!--            <class name="com.project.function.Test_Case_Example_I"/>-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>

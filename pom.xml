@@ -19,8 +19,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <!-- Global variable for dependencies -->
         <webdriver.version>3.141.59</webdriver.version>
-        <testng.version>6.14.3</testng.version>
-        <jackson.version>2.9.4</jackson.version>
+        <testng.version>7.7.0</testng.version>
+        <jackson.version>2.15.2</jackson.version>
         <webdrivermanager.version>5.5.3</webdrivermanager.version>
         <aspectj.version>1.8.10</aspectj.version>
     </properties>
@@ -112,12 +112,6 @@
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>1.0.2</version>
         </dependency>
 
         <dependency>

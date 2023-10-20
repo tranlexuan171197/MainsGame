@@ -63,7 +63,7 @@ public class BaseTest {
 	private boolean checkTrue(boolean condition){
 		boolean pass = true;
 		try {
-			if (condition == true){
+			if (condition){
 				log.info(" -------------------------- PASSED -------------------------- ");
 			}else {
 				log.info(" -------------------------- FAILED -------------------------- ");

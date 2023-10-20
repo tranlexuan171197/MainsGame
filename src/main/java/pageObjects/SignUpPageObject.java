@@ -2,7 +2,6 @@ package pageObjects;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUis.SignInPageUI;
 import pageUis.SignUpPageUI;
 
 public class SignUpPageObject extends BasePage {
@@ -42,15 +41,25 @@ public class SignUpPageObject extends BasePage {
     }
 
     public void clickToSignInButton(){
-        waitForElementClickable(driver, SignUpPageUI.SIGN_UP_BUTTON);
+//        waitForElementClickable(driver, SignUpPageUI.SIGN_UP_BUTTON);
         clickToElement(driver, SignUpPageUI.SIGN_UP_BUTTON);
     }
 
-    public void SignUnToEklipse(String name,String email, String password, String confirmPassword){
+    public void SignUpToEklipse(String name, String email, String password, String confirmPassword){
         sendKeyToNameField(name);
         sendKeyToEmailField(email);
         sendKeyToPasswordField(password);
         sendKeyToConfirmPasswordField(confirmPassword);
         clickToSignInButton();
+    }
+
+    public String getEmailErrorText(){
+        return getElementText(driver,SignUpPageUI.EMAIL_ERROR_MESSAGE);
+    }
+    public String getPasswordErrorText(){
+        return getElementText(driver,SignUpPageUI.PASSWORD_ERROR_MESSAGE);
+    }
+    public String getCofirmPasswordErrorText(){
+        return getElementText(driver,SignUpPageUI.CONFIRMATION_PASSWORD_ERROR_MESSAGE);
     }
 }

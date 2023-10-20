@@ -1,6 +1,7 @@
 package pageObjects;
 
 import commons.BasePage;
+import commons.PageGenerateManager;
 import org.openqa.selenium.WebDriver;
 import pageUis.SignInPageUI;
 
@@ -29,9 +30,10 @@ public class SignInPageObject extends BasePage {
         sendKeyToElement(driver, SignInPageUI.PASSWORD_FIELD,password);
     }
 
-    public void clickToSignInButton(){
+    public HomePageObject clickToSignInButton(){
         waitForElementClickable(driver, SignInPageUI.SIGN_IN_BUTTON);
         clickToElement(driver, SignInPageUI.SIGN_IN_BUTTON);
+        return PageGenerateManager.getHomePage(driver);
     }
 
     public void SignInToEklipse(String email, String password){
