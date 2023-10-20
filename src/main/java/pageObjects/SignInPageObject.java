@@ -41,4 +41,14 @@ public class SignInPageObject extends BasePage {
         sendKeyToPasswordField(password);
         clickToSignInButton();
     }
+
+    public String getErrorTitle(){
+        return getElementText(driver,SignInPageUI.LOGIN_FAIL_TITLE_MESSAGE);
+    }
+
+    public void clickToCloseErrorButton(){
+        waitForElementClickable(driver, SignInPageUI.CLOSE_LOGIN_FAIL_WARNING_BUTTON);
+        clickToElement(driver, SignInPageUI.CLOSE_LOGIN_FAIL_WARNING_BUTTON);
+    }
+
 }

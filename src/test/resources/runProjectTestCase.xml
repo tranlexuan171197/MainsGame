@@ -3,20 +3,25 @@
 <suite name="All Test Suite" parallel="false">
     <parameter name="url" value="https://eklipse.gg/"/>
 
+<!--
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
         <listener class-name="commons.MethodListener"></listener>
         <listener class-name="commons.ReportNGListener"></listener>
     </listeners>
+-->
 
     <test name="Test Case I">
         <parameter name="browser" value="chrome"/>
         <classes>
+<!--change class name to test class you want-->
             <class name="com.project.function.Test_Case_Sign_In">
-                <!--                <methods>-->
-                <!--                    <include name="TC_Sign_Up_For_Free_With_Wrong_Email_Format"/>-->
-                <!--                </methods>-->
+<!--                change name include to run specific testcase you want in the class-->
+                                <methods>
+                                    <include name="TC_Login_Fail_With_Wrong_Email"/>
+                                    <include name="TC_Login_Fail_With_Wrong_Password"/>
+                                </methods>
             </class>
 
         </classes>

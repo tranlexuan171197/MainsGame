@@ -27,17 +27,47 @@ public class Test_Case_Sign_In extends BaseTest {
 		landingPage = new LandingPageObject(driver);
 		landingPage.clickToSignInButton();
 	}
-
 	@Test(priority = 1)
+	public void TC_Login_Fail_With_Wrong_Email(){
+		String email ="tes@testgmail.com";
+		String password ="12345678";
+		log.info("Send invalid email to Email Field");
+		signInPage = new SignInPageObject(driver);
+		signInPage.sendKeyToEmailField(email);
+		log.info("Send valid password to password Field");
+		signInPage.sendKeyToPasswordField(password);
+		log.info("Click Sign Button");
+		signInPage.clickToSignInButton();
+
+		log.info("Close the Warning");
+		signInPage.clickToCloseErrorButton();
+	}
+
+	@Test(priority = 2)
+	public void TC_Login_Fail_With_Wrong_Password(){
+		String email ="tes123@testgmail.com";
+		String password ="123456";
+		log.info("Send invalid email to Email Field");
+		signInPage = new SignInPageObject(driver);
+		signInPage.sendKeyToEmailField(email);
+		log.info("Send valid password to password Field");
+		signInPage.sendKeyToPasswordField(password);
+		log.info("Click Sign Button");
+		signInPage.clickToSignInButton();
+
+		log.info("Close the Warning");
+		signInPage.clickToCloseErrorButton();
+	}
+	@Test(priority = 3)
 	public void TC_Sign_In_To_Eklipse(){
 		String email ="tes123@gmail.com";
 		String password ="12345678";
 
-		log.info("Sendkey  to Email Field");
+		log.info("Sendkey to Email Field");
 		signInPage = new SignInPageObject(driver);
 		signInPage.sendKeyToEmailField(email);
 
-		log.info("Sendkey  to Password Field");
+		log.info("Sendkey to Password Field");
 		signInPage.sendKeyToPasswordField(password);
 
 		log.info("Click to Sign In button");
@@ -45,10 +75,8 @@ public class Test_Case_Sign_In extends BaseTest {
 
 		String actualHomePageURL = homePage.getUrl();
 		String expectedHomepageURL = actualHomePageURL;
-
+//need to change the verify value
 		verifyEquals(actualHomePageURL,expectedHomepageURL);
-
-
 	}
 
 	@AfterClass
