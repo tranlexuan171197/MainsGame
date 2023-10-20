@@ -1,10 +1,7 @@
 package commons;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.HomePageObject;
-import pageObjects.LandingPageObject;
-import pageObjects.SignInPageObject;
-import pageObjects.SignUpPageObject;
+import pageObjects.*;
 
 public class PageGenerateManager {
 	private static HomePageObject demoPage;
@@ -13,6 +10,8 @@ public class PageGenerateManager {
 	private static SignUpPageObject signupPage;
 	private static HomePageObject homePage;
 
+	private static AccountSettingPage accountSettingPage;
+
 
 	private PageGenerateManager(){
 	}
@@ -20,6 +19,9 @@ public class PageGenerateManager {
 		return homePage = new HomePageObject(driver);
 	}
 
+	public static AccountSettingPage getaccountSettingPage(WebDriver driver){
+		return accountSettingPage = new AccountSettingPage(driver);
+	}
 	public static  LandingPageObject getLandingPage(WebDriver driver){
 		return landingPage = new LandingPageObject(driver);
 	}

@@ -1,6 +1,7 @@
 package pageObjects;
 
 import commons.BasePage;
+import commons.PageGenerateManager;
 import org.openqa.selenium.WebDriver;
 import pageUis.LandingPageUI;
 
@@ -11,14 +12,16 @@ public class LandingPageObject extends BasePage {
         this.driver = driver;
     }
 
-    public void clickToSignInButton(){
+    public SignInPageObject clickToSignInButton(){
         waitForElementClickable(driver, LandingPageUI.SIGN_IN_BUTTON);
         clickToElement(driver, LandingPageUI.SIGN_IN_BUTTON);
+        return  PageGenerateManager.getSigninPage(driver);
     }
 
-    public void clickToSignUpButton(){
+    public SignUpPageObject clickToSignUpButton(){
         waitForElementClickable(driver, LandingPageUI.SIGN_UP_BUTTON);
         clickToElement(driver, LandingPageUI.SIGN_UP_BUTTON);
+        return PageGenerateManager.getSignupPage(driver);
     }
 
 

@@ -28,7 +28,7 @@ public class Test_Case_Sign_Up extends BaseTest {
 
 		log.info("Click Sign Up For Free at Landing Page");
 		landingPage = new LandingPageObject(driver);
-		landingPage.clickToSignUpButton();
+		signUpPage = landingPage.clickToSignUpButton();
 	}
 
 	/**
@@ -37,10 +37,6 @@ public class Test_Case_Sign_Up extends BaseTest {
 	 */
 	@Test(priority = 1)
 	public void TC_Sign_Up_For_Free_With_All_Empty_Field(){
-/*		String email ="tes123@gmail.com";
-		String password ="12345678";
-		String confirmPassword = "12345678";
-		String name = "test";*/
 
 		String email ="";
 		String password ="";
@@ -48,7 +44,6 @@ public class Test_Case_Sign_Up extends BaseTest {
 		String name = "";
 
 		log.info("Empty All Field And Click Sign Up");
-		signUpPage = new SignUpPageObject(driver);
 		signUpPage.SignUpToEklipse(name,email,password,confirmPassword);
 
 
@@ -62,8 +57,9 @@ public class Test_Case_Sign_Up extends BaseTest {
 		String name = "";
 
 		log.info("Empty All Field except Email with wrong email format And Click Sign Up");
-		signUpPage = new SignUpPageObject(driver);
 		signUpPage.SignUpToEklipse(name,email,password,confirmPassword);
+
+		log.info("Verify Email Error displayed correct?");
 		String actualEmailError = signUpPage.getEmailErrorText();
 		verifyEquals(actualEmailError,emailWrongFormatError);
 
@@ -77,11 +73,13 @@ public class Test_Case_Sign_Up extends BaseTest {
 		String name = "Test";
 
 		log.info("Input password < 8 character And Click Sign Up");
-		signUpPage = new SignUpPageObject(driver);
 		signUpPage.SignUpToEklipse(name,email,password,confirmPassword);
+
+		log.info("Verify Password Error displayed correct?");
 		String actualPasswordError = signUpPage.getPasswordErrorText();
 		verifyEquals(actualPasswordError,passwordError);
 
+		log.info("Verify Confirm Password Error displayed correct?");
 		String actualConfirmPasswordError = signUpPage.getCofirmPasswordErrorText();
 		verifyEquals(actualConfirmPasswordError,confirmPasswordError);
 
@@ -89,13 +87,12 @@ public class Test_Case_Sign_Up extends BaseTest {
 
 	@Test(priority = 4)
 	public void TC_Sign_In_To_Eklipse_Successfully(){
-		String email ="tes321@gmail.com";
+		String email ="test321@gmail.com";
 		String password ="12345678";
 		String confirmPassword = "12345678";
 		String name = "Test";
 
 		log.info("Input valid to all field And Click Sign Up");
-		signUpPage = new SignUpPageObject(driver);
 		signUpPage.SignUpToEklipse(name,email,password,confirmPassword);
 
 	}

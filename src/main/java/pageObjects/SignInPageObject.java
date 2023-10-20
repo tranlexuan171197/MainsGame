@@ -36,10 +36,10 @@ public class SignInPageObject extends BasePage {
         return PageGenerateManager.getHomePage(driver);
     }
 
-    public void SignInToEklipse(String email, String password){
+    public HomePageObject SignInToEklipse(String email, String password){
         sendKeyToEmailField(email);
         sendKeyToPasswordField(password);
-        clickToSignInButton();
+        return clickToSignInButton();
     }
 
     public String getErrorTitle(){

@@ -3,16 +3,15 @@ package com.project.function;
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import pageObjects.HomePageObject;
-import pageObjects.LandingPageObject;
-import pageObjects.SignInPageObject;
-import pageObjects.SignUpPageObject;
+import pageObjects.*;
 
 public class Test_Case_Sign_In extends BaseTest {
 	WebDriver driver;
 	LandingPageObject landingPage;
 	SignInPageObject signInPage;
 	HomePageObject homePage;
+
+	AccountSettingPage accountSettingPage;
 	String email ="abc@gmail.com";
 	String password ="123456";
 
@@ -79,6 +78,23 @@ public class Test_Case_Sign_In extends BaseTest {
 		verifyEquals(actualHomePageURL,expectedHomepageURL);
 	}
 
+	/**
+	 * Test case này fail do chưa tắt những pop up khi đăng nhập
+	 */
+	@Test(priority = 4)
+	public void TC_Click_To_Account_Setting(){
+
+		log.info("select Profile => Account Setting");
+		homePage.clickToProfile();
+		homePage.clickToProfileOption();
+
+		log.info("Verify page Accoutn Setting is displayed");
+		accountSettingPage = new AccountSettingPage(driver);
+		String actual = accountSettingPage.getAccountSettingTitle();
+		String expect ="Account Setting";
+
+		verifyEquals(actual,expect);
+	}
 	@AfterClass
 	public void cleanBrowser(){
 		cleanBrowserAndDriver();
