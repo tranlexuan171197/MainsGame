@@ -1,8 +1,8 @@
 package commons;
 
-import net.bytebuddy.implementation.bytecode.Throw;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MethodListener implements IInvokedMethodListener {
 
-	private static final Log log = LogFactory.getLog(MethodListener.class);
+	private static final Logger log = LogManager.getLogger(MethodListener.class);
 
 	@Override
 	public void beforeInvocation(IInvokedMethod method, ITestResult result) {

@@ -1,8 +1,8 @@
 package commons;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -20,10 +20,10 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 	private WebDriver driver;
 
-	protected final Log log;
+	protected   final Logger log;
 
 	protected BaseTest(){
-		log = LogFactory.getLog(getClass());
+		log = LogManager.getLogger(getClass());
 		log.debug("Debug Message Logged !!!");
 		log.info("Info Message Logged !!!");
 
@@ -125,7 +125,8 @@ public class BaseTest {
 		if(driver != null){
 			driver.manage().deleteAllCookies();
 			driver.quit();
-			System.out.println("Close driver instance");
+			log.info("----After Class - Close driver instance----");
+
 		}
 
 	}
@@ -133,6 +134,7 @@ public class BaseTest {
 	@AfterSuite(alwaysRun = true)
 	public void cleanExecutableDriver(){
 		String cmd = "";
+		log.info("----AfterSuite - Run command line Clear Executable Driver----");
 		try {
 			String osName = System.getProperty("os.name").toLowerCase();
 			log.info("OS name = " + osName);
@@ -172,7 +174,6 @@ public class BaseTest {
 
 			Process process = Runtime.getRuntime().exec(cmd);
 			process.waitFor();
-			System.out.println("Run command line");
 
 		} catch (IOException e) {
 			e.printStackTrace();

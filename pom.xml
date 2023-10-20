@@ -85,9 +85,14 @@
         </dependency>
 
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.20.0</version>
         </dependency>
 
         <dependency>
@@ -170,11 +175,11 @@
         </plugins>
     </build>
 
-<!--    <repositories>
-        <repository>
-            <id>jcenter</id>
-            <url>https://dl.bintray.com/cbeust/maven/</url>
-        </repository>
-    </repositories>-->
+    <!--    <repositories>
+            <repository>
+                <id>jcenter</id>
+                <url>https://dl.bintray.com/cbeust/maven/</url>
+            </repository>
+        </repositories>-->
 
 </project>
